@@ -1,11 +1,43 @@
 <!DOCTYPE html>
-	<html>
-		<head>
-			<title>Crime Log Stylizer</title>
-			<link rel="stylesheet" href="css/main.css">
-			<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-		</head>
-		<body>
-			<p>stay tuned for a tool that stylizes Hunt News' <a href="https://huntnewsnu.com/category/crime-logs/">crime logs</a>...</p>
-		</body>
-	</html>
+<html>
+
+<head>
+	<title>Crime Log Stylizer</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="css/main.css">
+	<script src="js/form.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+</head>
+
+<body>
+	<h2>Hunt News <a href="https://huntnewsnu.com/category/crime-logs/">Crime Log</a> Stylizer</h2>
+
+	<form id="form" method="get" action="">
+
+		<div class="form-group" id="form-group1">
+			<div class="form-block">
+				<label for="date-input1">Date</label><br />
+				<input type="date" class="date-input" id="date-input1" name="date1">
+			</div>
+			<div class="form-block">
+				<label for="time-input1">Time</label><br />
+				<input type="time" class="time-input" id="time-input1" name="time1">
+			</div>
+			<div class="form-block">
+				<label for="type-input1">Type</label><br />
+				<input type="text" class="type-input" id="type-input1" name="type1">
+			</div>
+			<div class="form-block">
+				<label for="name">Text</label><br />
+				<textarea class="text-input" id="text-input1" name="text1"></textarea>
+			</div>
+			<button type="button" class="btn btn-primary btn-block" id="form-group-submit1">New entry</button>
+			<button type="button" class="btn btn-success btn-block">Finish log</button>
+		</div>
+	</form>
+</body>
+
+</html>

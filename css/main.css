@@ -2,7 +2,32 @@
 @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap');
 
 body {
-  margin: 20px auto;
-  width: 70%;
+  margin: 0 auto;
   font-family: 'Source Sans Pro', sans-serif;
+}
+
+h2 {
+  font-weight: bold;
+  /* font-size: 30px; */
+  /* line-height: 50px; */
+  text-align: center;
+}
+
+form {
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+label {
+  font-weight: bold;
+}
+
+.text-input {
+  width: 400px;
+  height: 150px;
+  margin-bottom: 5px;
+}
+
+.form-block {
+  margin-bottom: 5px;
 }
