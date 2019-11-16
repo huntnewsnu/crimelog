@@ -5,7 +5,7 @@ web app to stylize crime log posts
 
 #### to do
 * clear form on page refresh
-* auto validate date/time types
+* auto validate date/time types?
 * in preview, add in line breaks
-* don't show date if same as previous entry
+* don't show date if same as previous entry (where to put this..)
 * keep track of type (in separate object?)

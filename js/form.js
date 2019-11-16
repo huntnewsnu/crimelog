@@ -10,6 +10,8 @@ function increment(){
 // initialize object to hold form data
 var dataObj = {};
 
+let entryId;
+
 // formats new entry input and generates new entry form
 function newEntry(id) {
   let idString = id;
@@ -39,12 +41,7 @@ var currentText;
 function formatEntry(idString, isNew) {
   // get id of current entry
   let currentId = idString;
-  let entryId;
-  if (isNew) {
-    entryId = currentId.split('form-group-submit').pop();
-  } else {
-    entryId = currentId.split('finish-log-button').pop();
-  }
+  entryId = isNew ? currentId.split('form-group-submit').pop() : entryId = currentId.split('finish-log-button').pop();
 
   // get current inputs
   currentDate = $('#date-input' + entryId).val();
@@ -82,23 +79,24 @@ function formatEntryString(obj) {
 // initialize variable of html string
 var newEntryHtml;
 function generateNewEntryHtml() {
-  return newEntryHtml = `<form id="form${counter}">
+  return newEntryHtml = `<br />
+  <form id="form${counter}">
     <div class="form-group" id="form-group${counter}">
       <div class="form-block">
         <label for="date-input${counter}">Date</label><br />
-        <input type="text" class="date-input" id="date-input${counter}" name="date${counter}" required>
+        <input type="text" class="date-input" id="date-input${counter}" name="date${counter}" placeholder="leave blank if same as previous">
       </div>
       <div class="form-block">
         <label for="time-input${counter}">Time</label><br />
-        <input type="text" class="time-input" id="time-input${counter}" name="time${counter}" required>
+        <input type="text" class="time-input" id="time-input${counter}" name="time${counter}">
       </div>
       <div class="form-block">
         <label for="type-input${counter}">Type</label><br />
-        <input type="text" class="type-input" id="type-input${counter}" name="type${counter}" required>
+        <input type="text" class="type-input" id="type-input${counter}" name="type${counter}">
       </div>
       <div class="form-block">
         <label for="name">Text</label><br />
-        <textarea class="text-input" id="text-input${counter}" name="text${counter}" required></textarea>
+        <textarea class="text-input" id="text-input${counter}" name="text${counter}"></textarea>
       </div>
       <button type="button" class="btn btn-primary btn-block" id="form-group-submit${counter}" onclick="newEntry(this.id)">New entry</button>
       <button type="button" class="btn btn-success btn-block" id="finish-log-button${counter}" onclick="finishLog(this.id)">Finish log</button>
