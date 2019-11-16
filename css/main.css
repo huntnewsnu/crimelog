@@ -13,7 +13,7 @@ h2 {
   text-align: center;
 }
 
-form {
+#content-wrapper {
   max-width: 400px;
   margin: 0 auto;
 }
