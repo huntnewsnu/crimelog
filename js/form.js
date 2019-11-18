@@ -44,7 +44,8 @@ function formatEntry(idString, isNew) {
   entryId = isNew ? currentId.split('form-group-submit').pop() : entryId = currentId.split('finish-log-button').pop();
 
   // get current inputs
-  currentDate = $('#date-input' + entryId).val();
+  $('#date-input' + entryId).val() ? currentDate = $('#date-input' + entryId).val() : currentDate = '';
+  // currentDate = $('#date-input' + entryId).val()
   currentTime = $('#time-input' + entryId).val();
   currentType = $('#type-input' + entryId).val();
   currentText = $('#text-input' + entryId).val();
@@ -62,16 +63,17 @@ function formatEntry(idString, isNew) {
 
   // console.log(dataObj)
   // console.log(counter)
-  $(`#form${counter}`).replaceWith(`<br /><div class="formatted-entry" id="formatted${counter}">${formatEntryString(currentObj).replace(/\n/g,'<br /><br />')}</div>`);
+  $(`#form${counter}`).replaceWith(`<br /><div class="formatted-entry" id="formatted${counter}">${formatEntryString(currentObj).replace(/\n/g,'<br />')}</div>`);
 }
 
 // formats entry input text
 function formatEntryString(obj) {
 
-  return `<b style="font-size: 20px;">${obj.date}</b>\n<span style="font-weight: 400; font-size: 16px; color: #fff; padding: 6px; background: rgba(156, 16, 16, 0.66);">${obj.time}</span>\n<span style="font-weight: 400;">${obj.type.toUpperCase()} &mdash; ${obj.text}</span><br />`;
+  let dateStr;
+  obj.date != '' ? dateStr = `<b style="font-size: 20px;">${obj.date}</b>` : dateStr = '';
 
-  // console.log(formattedStr);
-  // $('#form1').append(formattedStr.replace(/\n/g,'<br /><br />'));
+  return `${dateStr}\n\n<span style="font-weight: 400; font-size: 16px; color: #fff; padding: 6px; background: rgba(156, 16, 16, 0.66);">${obj.time}</span>\n\n<span style="font-weight: 400;">${obj.type.toUpperCase()} &mdash; ${obj.text}</span><br />`;
+
 
 }
 
@@ -83,8 +85,8 @@ function generateNewEntryHtml() {
   <form id="form${counter}">
     <div class="form-group" id="form-group${counter}">
       <div class="form-block">
-        <label for="date-input${counter}">Date</label><br />
-        <input type="text" class="date-input" id="date-input${counter}" name="date${counter}" placeholder="leave blank if same as previous">
+        <label for="date-input${counter}">Date <i>(if different from previous)</i></label><br />
+        <input type="text" class="date-input" id="date-input${counter}" name="date${counter}">
       </div>
       <div class="form-block">
         <label for="time-input${counter}">Time</label><br />
